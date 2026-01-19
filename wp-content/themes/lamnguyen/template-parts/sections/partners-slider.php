@@ -1,9 +1,8 @@
 <?php
-
 declare(strict_types=1);
 
 $partners = lamnguyen_get_field('partner_logos', array());
-$splide_config = htmlspecialchars(json_encode(array(
+$base_config = array(
     'type' => 'loop',
     'direction' => 'ltr',
     'keyboard' => 'false',
@@ -21,33 +20,42 @@ $splide_config = htmlspecialchars(json_encode(array(
     'arrows' => false,
     'pagination' => false,
     'mediaQuery' => 'max',
+    'autoScroll' => array(
+        'speed' => 0.3,
+        'pauseOnHover' => false,
+        'pauseOnFocus' => false,
+    ),
     'breakpoints' => array(
         '1279' => array('keyboard' => 'false', 'height' => 'auto', 'perPage' => '12', 'perMove' => '1', 'autoHeight' => true),
         '1199' => array('perPage' => '10'),
         '767' => array('perPage' => '6'),
         '478' => array('perPage' => '5', 'speed' => '3000'),
     ),
-)), ENT_QUOTES, 'UTF-8');
+);
+$left_config = htmlspecialchars(json_encode($base_config), ENT_QUOTES, 'UTF-8');
+$right_config = $base_config;
+$right_config['direction'] = 'rtl';
+$right_config = htmlspecialchars(json_encode($right_config), ENT_QUOTES, 'UTF-8');
 ?>
 <section id="brxe-rntwof" class="brxe-section bricks-lazy-hidden">
     <div id="brxe-xtmrnx"
         class="brxe-slider-nested carousel05__logos carousel05__logos__left bricks-lazy-hidden splide brx-auto-height"
-        data-splide="<?php echo $splide_config; ?>">
+        data-splide="<?php echo $left_config; ?>">
         <div class="splide__track">
             <div class="splide__list">
                 <?php foreach ($partners as $partner) : ?>
-                    <div class="brxe-block bricks-lazy-hidden splide__slide">
-                        <?php
+                <div class="brxe-block bricks-lazy-hidden splide__slide">
+                    <?php
                         $logo = $partner['logo'] ?? null;
                         $link = $partner['link'] ?? '';
                         $img = $logo ? lamnguyen_render_image($logo, 'full', array('class' => 'brxe-image css-filter')) : '';
                         ?>
-                        <?php if ($link) : ?>
-                            <a href="<?php echo esc_url($link); ?>"><?php echo $img; ?></a>
-                        <?php else : ?>
-                            <?php echo $img; ?>
-                        <?php endif; ?>
-                    </div>
+                    <?php if ($link) : ?>
+                    <a href="<?php echo esc_url($link); ?>"><?php echo $img; ?></a>
+                    <?php else : ?>
+                    <?php echo $img; ?>
+                    <?php endif; ?>
+                </div>
                 <?php endforeach; ?>
             </div>
         </div>
@@ -55,22 +63,22 @@ $splide_config = htmlspecialchars(json_encode(array(
 
     <div id="brxe-obtfjz"
         class="brxe-slider-nested carousel05__logos carousel05__logos__right bricks-lazy-hidden splide brx-auto-height"
-        data-splide="<?php echo $splide_config; ?>">
+        data-splide="<?php echo $right_config; ?>">
         <div class="splide__track">
             <div class="splide__list">
                 <?php foreach ($partners as $partner) : ?>
-                    <div class="brxe-block bricks-lazy-hidden splide__slide">
-                        <?php
+                <div class="brxe-block bricks-lazy-hidden splide__slide">
+                    <?php
                         $logo = $partner['logo'] ?? null;
                         $link = $partner['link'] ?? '';
                         $img = $logo ? lamnguyen_render_image($logo, 'full', array('class' => 'brxe-image css-filter')) : '';
                         ?>
-                        <?php if ($link) : ?>
-                            <a href="<?php echo esc_url($link); ?>"><?php echo $img; ?></a>
-                        <?php else : ?>
-                            <?php echo $img; ?>
-                        <?php endif; ?>
-                    </div>
+                    <?php if ($link) : ?>
+                    <a href="<?php echo esc_url($link); ?>"><?php echo $img; ?></a>
+                    <?php else : ?>
+                    <?php echo $img; ?>
+                    <?php endif; ?>
+                </div>
                 <?php endforeach; ?>
             </div>
         </div>
