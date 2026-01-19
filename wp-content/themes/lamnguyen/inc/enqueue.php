@@ -40,20 +40,28 @@ function lamnguyen_enqueue_assets(): void
         array(),
         $theme_version
     );
-    wp_enqueue_style(
-        'lamnguyen-theme',
-        get_template_directory_uri() . '/assets/css/theme.css',
-        array('lamnguyen-google-fonts', 'lamnguyen-font-awesome', 'lamnguyen-themify', 'lamnguyen-bricks-frontend', 'lamnguyen-bricks-splide'),
-        file_exists($css_path) ? (string) filemtime($css_path) : $theme_version
+    $theme_deps = array(
+        'lamnguyen-google-fonts',
+        'lamnguyen-font-awesome',
+        'lamnguyen-themify',
+        'lamnguyen-bricks-frontend',
+        'lamnguyen-bricks-splide',
     );
     if (file_exists($inline_css_path)) {
         wp_enqueue_style(
             'lamnguyen-bricks-inline',
             get_template_directory_uri() . '/assets/css/bricks-inline.css',
-            array('lamnguyen-theme'),
+            array('lamnguyen-bricks-frontend', 'lamnguyen-bricks-splide'),
             (string) filemtime($inline_css_path)
         );
+        $theme_deps[] = 'lamnguyen-bricks-inline';
     }
+    wp_enqueue_style(
+        'lamnguyen-theme',
+        get_template_directory_uri() . '/assets/css/theme.css',
+        $theme_deps,
+        file_exists($css_path) ? (string) filemtime($css_path) : $theme_version
+    );
 
     wp_enqueue_script(
         'lamnguyen-splide',

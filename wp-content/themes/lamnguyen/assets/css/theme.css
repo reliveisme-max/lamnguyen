@@ -115,38 +115,63 @@ body.no-scroll {
     object-fit: contain;
 }
 
-#brxe-fmrgte {
-    align-items: stretch;
+#brxe-qeagss {
+    width: 100%;
+    background-image: linear-gradient(transparent 0%, #99cddf 60%, #99cddf 70%, #ffffff 100%);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 40%;
+    z-index: 1;
 }
 
 #brxe-jzxuux {
-    display: block;
-    width: 100% !important;
-    height: 100% !important;
-    max-height: none !important;
-}
-
-#brxe-iyjiza {
-    display: none;
-    width: 100%;
-    height: auto;
-}
-
-#brxe-qeagss {
-    z-index: 1;
+    position: relative;
+    z-index: 0;
 }
 
 #brxe-xxasvs,
 #brxe-pnsjln {
+    position: relative;
     z-index: 2;
 }
 
-@media (max-width: 767px) {
-    #brxe-jzxuux {
-        display: none;
-    }
+.gold-text {
+    font-size: 14rem;
+    background-image: url("../texture-gold-1.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    font-family: "Anton SC";
+    line-height: 1;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #FFD700;
+}
 
-    #brxe-iyjiza {
-        display: block;
+#brxe-nscppa,
+#brxe-ycmmij {
+    font-family: "Anton SC";
+    line-height: 1;
+}
+
+@media (max-width: 1199px) {
+    .gold-text {
+        font-size: 8rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .gold-text {
+        font-size: 16rem;
+    }
+}
+
+@media (max-width: 478px) {
+    .gold-text {
+        font-size: 8rem;
     }
 }
