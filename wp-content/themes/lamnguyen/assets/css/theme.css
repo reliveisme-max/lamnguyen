@@ -1,0 +1,91 @@
+/* Theme styles will be added in later steps. */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Quicksand", Arial, sans-serif;
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+.brxe-offcanvas {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: min(420px, 100%);
+    background: #ffffff;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 1001;
+}
+
+.brxe-offcanvas.is-open {
+    transform: translateX(0);
+}
+
+.brx-offcanvas-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+.brxe-offcanvas.is-open + .brx-offcanvas-backdrop,
+.brx-offcanvas-backdrop.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.section-banner {
+    background-image: var(--banner-bg);
+}
+
+@media (max-width: 1199px) {
+    .section-banner {
+        background-image: var(--banner-bg-mobile, var(--banner-bg));
+    }
+}
+
+.section-trust {
+    background-image: var(--trust-bg);
+    background-size: cover;
+    background-position: center;
+}
+
+.brx-nav-nested-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.brx-nav-nested-items > li + li::before {
+    content: "";
+    display: inline-block;
+    width: 2px;
+    height: 20px;
+    background: var(--black-medium, #313c46);
+    margin: 0 1.2rem;
+    vertical-align: middle;
+}
+
+.brx-nav-nested-items > li {
+    display: inline-flex;
+    align-items: center;
+}
+
+.brxe-toggle,
+.brxe-button {
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
