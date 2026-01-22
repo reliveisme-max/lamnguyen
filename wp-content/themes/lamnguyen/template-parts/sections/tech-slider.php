@@ -9,23 +9,23 @@ $tech_quality_label = lamnguyen_get_field('tech_quality_label', 'chất lượng
 $tech_quality_highlight = lamnguyen_get_field('tech_quality_highlight', 'vượt trội');
 $tech_subtitle = lamnguyen_get_field('tech_subtitle', 'Thách thức mọi Dự án');
 ?>
-<section id="brxe-zoixle" class="brxe-section bricks-lazy-hidden">
-    <div id="brxe-lomnqj" class="brxe-container bricks-lazy-hidden">
-        <div id="brxe-qvksus" class="brxe-block bricks-lazy-hidden">
-            <h2 id="brxe-sompsk" class="brxe-block bricks-lazy-hidden">
-                <span id="brxe-qvttkp" class="brxe-block bricks-lazy-hidden">
-                    <span id="brxe-pnsnqv" class="brxe-heading"><?php echo esc_html($tech_title); ?></span>
-                    <span id="brxe-sgaviw" class="brxe-heading"><?php echo esc_html($tech_title_highlight); ?></span>
-                    <span id="brxe-zjrzij" class="brxe-heading"><?php echo esc_html($tech_title_suffix); ?></span>
+<section id="section-tech" class="section section-tech">
+    <div class="container tech-inner">
+        <div class="tech-title-group">
+            <h2 class="tech-title">
+                <span class="tech-title-row">
+                    <span class="tech-title-text"><?php echo esc_html($tech_title); ?></span>
+                    <span class="tech-title-highlight"><?php echo esc_html($tech_title_highlight); ?></span>
+                    <span class="tech-title-suffix"><?php echo esc_html($tech_title_suffix); ?></span>
                 </span>
-                <span id="brxe-zmtquh" class="brxe-block bricks-lazy-hidden">
-                    <span id="brxe-xqibul" class="brxe-heading"><?php echo esc_html($tech_quality_label); ?></span>
-                    <span id="brxe-hbjmgg" class="brxe-heading"><?php echo esc_html($tech_quality_highlight); ?></span>
+                <span class="tech-title-row tech-title-row--quality">
+                    <span class="tech-quality-label"><?php echo esc_html($tech_quality_label); ?></span>
+                    <span class="tech-quality-highlight"><?php echo esc_html($tech_quality_highlight); ?></span>
                 </span>
             </h2>
         </div>
-        <div id="brxe-dfnduo" class="brxe-block bricks-lazy-hidden">
-            <h2 id="brxe-skbbys" class="brxe-heading"><?php echo esc_html($tech_subtitle); ?></h2>
+        <div class="tech-subtitle">
+            <h2 class="tech-subtitle-text"><?php echo esc_html($tech_subtitle); ?></h2>
         </div>
     </div>
 </section>

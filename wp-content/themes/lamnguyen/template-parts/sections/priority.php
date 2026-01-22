@@ -71,9 +71,9 @@ if ($priority_decor_bottom_url !== '') {
 $priority_style = implode(' ', $priority_style_parts);
 $priority_style_attr = $priority_style !== '' ? ' style="' . esc_attr($priority_style) . '"' : '';
 ?>
-<section id="brxe-xhnsod" class="brxe-section bricks-lazy-hidden" <?php echo $priority_style_attr; ?>>
-    <div id="brxe-extuzh" class="brxe-container bricks-lazy-hidden">
-        <h2 id="brxe-ugrqzv" class="brxe-heading"><?php echo wp_kses($priority_title, $priority_allowed); ?></h2>
-        <div id="brxe-ffwluc" class="brxe-text-basic"><?php echo esc_html($priority_body); ?></div>
+<section id="section-priority" class="section section-priority" <?php echo $priority_style_attr; ?>>
+    <div class="container priority-inner">
+        <h2 class="priority-title"><?php echo wp_kses($priority_title, $priority_allowed); ?></h2>
+        <div class="priority-body"><?php echo esc_html($priority_body); ?></div>
     </div>
 </section>

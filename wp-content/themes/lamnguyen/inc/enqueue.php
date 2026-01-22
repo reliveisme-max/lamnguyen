@@ -28,25 +28,39 @@ function lamnguyen_enqueue_assets(): void
         array(),
         '0.1.2'
     );
-    wp_enqueue_style(
-        'lamnguyen-bricks-frontend',
-        'https://inanlamnguyen.com/wp-content/themes/bricks/assets/css/frontend-layer.min.css?ver=1762830324',
-        array(),
-        $theme_version
-    );
-    wp_enqueue_style(
-        'lamnguyen-bricks-splide',
-        'https://inanlamnguyen.com/wp-content/themes/bricks/assets/css/libs/splide-layer.min.css?ver=1762830324',
-        array(),
-        $theme_version
-    );
+    $is_front_page = is_front_page();
+    if (!$is_front_page) {
+        wp_enqueue_style(
+            'lamnguyen-bricks-frontend',
+            'https://inanlamnguyen.com/wp-content/themes/bricks/assets/css/frontend-layer.min.css?ver=1762830324',
+            array(),
+            $theme_version
+        );
+        wp_enqueue_style(
+            'lamnguyen-bricks-splide',
+            'https://inanlamnguyen.com/wp-content/themes/bricks/assets/css/libs/splide-layer.min.css?ver=1762830324',
+            array(),
+            $theme_version
+        );
+    } else {
+        wp_enqueue_style(
+            'lamnguyen-splide-css',
+            'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css',
+            array(),
+            '4.1.4'
+        );
+    }
     $theme_deps = array(
         'lamnguyen-google-fonts',
         'lamnguyen-font-awesome',
         'lamnguyen-themify',
-        'lamnguyen-bricks-frontend',
-        'lamnguyen-bricks-splide',
     );
+    if ($is_front_page) {
+        $theme_deps[] = 'lamnguyen-splide-css';
+    } else {
+        $theme_deps[] = 'lamnguyen-bricks-frontend';
+        $theme_deps[] = 'lamnguyen-bricks-splide';
+    }
     wp_enqueue_style(
         'lamnguyen-theme',
         get_template_directory_uri() . '/assets/css/theme.css',

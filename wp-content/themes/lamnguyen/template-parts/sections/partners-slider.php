@@ -37,18 +37,16 @@ $right_config = $base_config;
 $right_config['direction'] = 'rtl';
 $right_config = htmlspecialchars(json_encode($right_config), ENT_QUOTES, 'UTF-8');
 ?>
-<section id="brxe-rntwof" class="brxe-section bricks-lazy-hidden">
-    <div id="brxe-xtmrnx"
-        class="brxe-slider-nested carousel05__logos carousel05__logos__left bricks-lazy-hidden splide brx-auto-height"
-        data-splide="<?php echo $left_config; ?>">
+<section id="section-partners" class="section section-partners">
+    <div class="partners-logos partners-logos--left splide" data-splide="<?php echo $left_config; ?>">
         <div class="splide__track">
             <div class="splide__list">
                 <?php foreach ($partners as $partner) : ?>
-                <div class="brxe-block bricks-lazy-hidden splide__slide">
+                <div class="partners-slide splide__slide">
                     <?php
                         $logo = $partner['logo'] ?? null;
                         $link = $partner['link'] ?? '';
-                        $img = $logo ? lamnguyen_render_image($logo, 'full', array('class' => 'brxe-image css-filter')) : '';
+                        $img = $logo ? lamnguyen_render_image($logo, 'full', array('class' => 'partners-logo')) : '';
                         ?>
                     <?php if ($link) : ?>
                     <a href="<?php echo esc_url($link); ?>"><?php echo $img; ?></a>
@@ -61,17 +59,15 @@ $right_config = htmlspecialchars(json_encode($right_config), ENT_QUOTES, 'UTF-8'
         </div>
     </div>
 
-    <div id="brxe-obtfjz"
-        class="brxe-slider-nested carousel05__logos carousel05__logos__right bricks-lazy-hidden splide brx-auto-height"
-        data-splide="<?php echo $right_config; ?>">
+    <div class="partners-logos partners-logos--right splide" data-splide="<?php echo $right_config; ?>">
         <div class="splide__track">
             <div class="splide__list">
                 <?php foreach ($partners as $partner) : ?>
-                <div class="brxe-block bricks-lazy-hidden splide__slide">
+                <div class="partners-slide splide__slide">
                     <?php
                         $logo = $partner['logo'] ?? null;
                         $link = $partner['link'] ?? '';
-                        $img = $logo ? lamnguyen_render_image($logo, 'full', array('class' => 'brxe-image css-filter')) : '';
+                        $img = $logo ? lamnguyen_render_image($logo, 'full', array('class' => 'partners-logo')) : '';
                         ?>
                     <?php if ($link) : ?>
                     <a href="<?php echo esc_url($link); ?>"><?php echo $img; ?></a>

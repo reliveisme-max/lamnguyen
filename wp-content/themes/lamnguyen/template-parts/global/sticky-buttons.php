@@ -10,18 +10,16 @@ $hotline_text = lamnguyen_get_option('sticky_hotline_text', __('Hotline: 0916 08
 $hotline_url = lamnguyen_get_option('sticky_hotline_url', 'tel:0916086338');
 $back_to_top_text = lamnguyen_get_option('sticky_back_to_top_text', __('Về đầu trang', 'lamnguyen'));
 ?>
-<a id="brxe-uljyim" href="<?php echo esc_url($profile_url); ?>" target="_blank"
-    class="brxe-block sticky-button bricks-lazy-hidden">
-    <div id="brxe-mtrldh" class="brxe-text-basic sticky-button__text"><?php echo esc_html($profile_text); ?></div>
-    <div class="brxe-block sticky-button__icon bricks-lazy-hidden">
-        <i id="brxe-ncyrpr" class="fas fa-cloud-arrow-down brxe-icon"></i>
+<a class="sticky-button sticky-button--profile" href="<?php echo esc_url($profile_url); ?>" target="_blank">
+    <div class="sticky-button__text"><?php echo esc_html($profile_text); ?></div>
+    <div class="sticky-button__icon">
+        <i class="fas fa-cloud-arrow-down sticky-button__icon-symbol"></i>
     </div>
 </a>
-<a id="brxe-djncoq" href="<?php echo esc_url($zalo_url); ?>" target="_blank"
-    class="brxe-block sticky-button bricks-lazy-hidden">
-    <div id="brxe-myxcvi" class="brxe-text-basic sticky-button__text"><?php echo esc_html($zalo_text); ?></div>
-    <div class="brxe-block sticky-button__icon bricks-lazy-hidden">
-        <svg class="brxe-icon" id="brxe-srlktf" xmlns="http://www.w3.org/2000/svg"
+<a class="sticky-button sticky-button--zalo" href="<?php echo esc_url($zalo_url); ?>" target="_blank">
+    <div class="sticky-button__text"><?php echo esc_html($zalo_text); ?></div>
+    <div class="sticky-button__icon">
+        <svg class="sticky-button__icon-svg" xmlns="http://www.w3.org/2000/svg"
             data-name="uuid-1f014997-de45-472d-a5ec-105163817406" viewBox="0 0 80 80">
             <path
                 d="M37.9,37.39c-1.78-.05-3.13,1.43-3.23,3.54-.11,2.22,1.16,3.93,2.99,4.01,1.82.09,3.23-1.33,3.39-3.4.17-2.22-1.25-4.1-3.15-4.16Z"
@@ -35,17 +33,15 @@ $back_to_top_text = lamnguyen_get_option('sticky_back_to_top_text', __('Về đ�
         </svg>
     </div>
 </a>
-<a id="brxe-jylufu" href="<?php echo esc_url($hotline_url); ?>" target="_blank"
-    class="brxe-block sticky-button bricks-lazy-hidden">
-    <div id="brxe-nvgtzb" class="brxe-text-basic sticky-button__text"><?php echo esc_html($hotline_text); ?></div>
-    <div class="brxe-block sticky-button__icon button-ring bricks-lazy-hidden">
-        <i id="brxe-oorxag" class="fas fa-phone brxe-icon"></i>
+<a class="sticky-button sticky-button--hotline" href="<?php echo esc_url($hotline_url); ?>" target="_blank">
+    <div class="sticky-button__text"><?php echo esc_html($hotline_text); ?></div>
+    <div class="sticky-button__icon button-ring">
+        <i class="fas fa-phone sticky-button__icon-symbol"></i>
     </div>
 </a>
-<a id="brxe-dhbmfp" href="#" rel="nofollow"
-    class="brxe-block sticky-button sticky-button__back-to-top bricks-lazy-hidden" data-back-to-top>
-    <div id="brxe-txrhag" class="brxe-text-basic sticky-button__text"><?php echo esc_html($back_to_top_text); ?></div>
-    <div class="brxe-block sticky-button__icon bricks-lazy-hidden">
-        <i id="brxe-dicebz" class="ti-angle-up brxe-icon"></i>
+<a class="sticky-button sticky-button--top sticky-button__back-to-top" href="#" rel="nofollow" data-back-to-top>
+    <div class="sticky-button__text"><?php echo esc_html($back_to_top_text); ?></div>
+    <div class="sticky-button__icon">
+        <i class="ti-angle-up sticky-button__icon-symbol"></i>
     </div>
 </a>

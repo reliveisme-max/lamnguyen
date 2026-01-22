@@ -31,8 +31,8 @@ if ($banner_bg_mobile_url !== '') {
     $banner_style .= '--banner-bg-mobile: url(' . esc_url($banner_bg_mobile_url) . ');';
 }
 ?>
-<section id="brxe-pbbgik" class="brxe-section section-banner" style="<?php echo esc_attr($banner_style); ?>">
-    <div id="brxe-igcatf" class="brxe-container bricks-lazy-hidden">
-        <h2 id="brxe-ermqlj" class="brxe-heading"><?php echo esc_html($banner_title); ?></h2>
+<section id="section-highlight" class="section section-highlight highlight-banner" style="<?php echo esc_attr($banner_style); ?>">
+    <div class="container highlight-inner">
+        <h2 class="highlight-title"><?php echo esc_html($banner_title); ?></h2>
     </div>
 </section>

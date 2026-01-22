@@ -9,41 +9,39 @@ $logo_markup = '';
 if ($logo_svg !== '') {
     $logo_markup = lamnguyen_render_svg($logo_svg);
 } elseif ($logo_image) {
-    $logo_markup = lamnguyen_render_image($logo_image, 'full', array('class' => 'bricks-site-logo css-filter', 'loading' => 'eager'));
+    $logo_markup = lamnguyen_render_image($logo_image, 'full', array('class' => 'site-logo', 'loading' => 'eager'));
 } else {
     $logo_markup = sprintf(
-        '<img src="%s" class="bricks-site-logo css-filter" loading="eager" decoding="async" alt="%s" />',
+        '<img src="%s" class="site-logo" loading="eager" decoding="async" alt="%s" />',
         esc_url($logo_fallback_url),
         esc_attr(get_bloginfo('name'))
     );
 }
 ?>
-<section id="brxe-cd4d2d" class="brxe-section bricks-lazy-hidden">
-    <div id="brxe-ffec5d" class="brxe-block bricks-lazy-hidden">
-        <div id="brxe-dac104" class="brxe-block bricks-lazy-hidden"></div>
-        <div id="brxe-252a5d" class="brxe-block bricks-lazy-hidden"></div>
+<section id="site-header" class="site-header">
+    <div class="header-top">
+        <div class="header-top__line header-top__line--left"></div>
+        <div class="header-top__line header-top__line--right"></div>
     </div>
-    <div id="brxe-d4203b" class="brxe-block bricks-lazy-hidden">
-        <a id="brxe-216392" href="<?php echo esc_url(home_url('/')); ?>" class="brxe-block bricks-lazy-hidden">
+    <div class="header-main">
+        <a class="header-logo" href="<?php echo esc_url(home_url('/')); ?>">
             <?php echo $logo_markup !== '' ? $logo_markup : esc_html(get_bloginfo('name')); ?>
         </a>
-        <div id="brxe-6dd330" class="brxe-block bricks-lazy-hidden"></div>
-        <div id="brxe-891447" class="brxe-block bricks-lazy-hidden">
-            <nav id="brxe-c6ff40" class="brxe-nav-nested bricks-lazy-hidden"
-                aria-label="<?php esc_attr_e('Menu', 'lamnguyen'); ?>">
+        <div class="header-spacer"></div>
+        <div class="header-nav">
+            <nav class="nav-primary" aria-label="<?php esc_attr_e('Menu', 'lamnguyen'); ?>">
                 <?php
                 wp_nav_menu(
                     array(
                         'theme_location' => 'primary',
                         'container'      => false,
-                        'menu_id'        => 'brxe-bd686b',
-                        'menu_class'     => 'brxe-block brx-nav-nested-items bricks-lazy-hidden',
+                        'menu_class'     => 'nav-primary__list',
                         'fallback_cb'    => false,
                     )
                 );
                 ?>
             </nav>
-            <button id="brxe-5c1bbd" class="brxe-button bricks-button" data-offcanvas-target="#nav-mobile"
+            <button class="nav-toggle" data-offcanvas-target="#nav-mobile"
                 aria-expanded="false" aria-label="<?php esc_attr_e('Mở', 'lamnguyen'); ?>" type="button">
                 <svg class="fill" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 36 24">
                     <path

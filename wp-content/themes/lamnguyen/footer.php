@@ -2,14 +2,14 @@
 declare(strict_types=1);
 ?>
 </main>
-<footer id="brx-footer">
-    <section id="brxe-f98e3f" class="brxe-section bricks-lazy-hidden">
+<footer id="site-footer" class="site-footer">
+    <section class="section footer-main">
         <?php get_template_part('template-parts/footer/map'); ?>
         <?php get_template_part('template-parts/footer/contact'); ?>
     </section>
-    <section id="brxe-7c14d3" class="brxe-section bricks-lazy-hidden">
-        <div id="brxe-cca35c" class="brxe-container bricks-lazy-hidden">
-            <div id="brxe-124836" class="brxe-text-basic">
+    <section class="section footer-bottom">
+        <div class="container footer-bottom__inner">
+            <div class="footer-bottom__text">
                 <?php echo esc_html(lamnguyen_get_option('footer_bottom_text', __('Copyright © 2009 IN LÂM NGUYỄN', 'lamnguyen'))); ?>
             </div>
         </div>

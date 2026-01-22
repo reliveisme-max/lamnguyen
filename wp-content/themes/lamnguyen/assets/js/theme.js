@@ -32,9 +32,9 @@
             return;
         }
 
-        const backdrop = event.target.closest('.brx-offcanvas-backdrop');
+        const backdrop = event.target.closest('.offcanvas-backdrop');
         if (backdrop) {
-            const offcanvas = backdrop.closest('.brxe-offcanvas');
+            const offcanvas = backdrop.closest('.offcanvas');
             if (offcanvas) {
                 toggleOffcanvas(`#${offcanvas.id}`, false);
             }

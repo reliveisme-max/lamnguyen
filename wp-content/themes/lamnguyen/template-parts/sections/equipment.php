@@ -32,19 +32,24 @@ $splide_config = htmlspecialchars(json_encode(array(
     ),
 )), ENT_QUOTES, 'UTF-8');
 ?>
-<section id="brxe-qkwrmf" class="brxe-section bricks-lazy-hidden">
-    <div class="brxe-slider-nested bricks-lazy-hidden splide" data-splide="<?php echo $splide_config; ?>">
+<section id="section-equipment" class="section section-equipment">
+    <div class="equipment-slider splide" data-splide="<?php echo $splide_config; ?>">
         <div class="splide__track">
             <div class="splide__list">
-                <?php foreach ($equipment_items as $item) : ?>
-                    <div class="brxe-block bricks-lazy-hidden splide__slide">
-                        <?php echo lamnguyen_render_image($item['image'] ?? null, 'full', array('class' => 'brxe-image css-filter')); ?>
-                        <div class="brxe-block bricks-lazy-hidden">
+                <?php foreach ($equipment_items as $index => $item) : ?>
+                    <?php
+                    $slide_class = 'equipment-slide equipment-slide--' . (int) ($index + 1);
+                    ?>
+                    <div class="<?php echo esc_attr($slide_class); ?> splide__slide">
+                        <div class="equipment-card">
+                            <?php echo lamnguyen_render_image($item['image'] ?? null, 'full', array('class' => 'equipment-card__image')); ?>
+                        </div>
+                        <div class="equipment-caption equipment-caption--<?php echo esc_attr((string) ($index + 1)); ?>">
                             <?php if (!empty($item['title'])) : ?>
-                                <h3 class="brxe-heading"><?php echo esc_html($item['title']); ?></h3>
+                                <h3 class="equipment-title"><?php echo esc_html($item['title']); ?></h3>
                             <?php endif; ?>
                             <?php if (!empty($item['subtitle'])) : ?>
-                                <h4 class="brxe-heading"><?php echo esc_html($item['subtitle']); ?></h4>
+                                <h4 class="equipment-subtitle"><?php echo esc_html($item['subtitle']); ?></h4>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -52,12 +57,11 @@ $splide_config = htmlspecialchars(json_encode(array(
             </div>
         </div>
     </div>
-    <div id="brxe-smtaha" class="brxe-block bricks-lazy-hidden">
-        <a id="brxe-lesxwm" class="brxe-button bricks-button outline circle"
-            href="<?php echo esc_url($cta_primary_link); ?>">
+    <div class="equipment-actions">
+        <a class="btn btn--magenta btn--pulse equipment-action" href="<?php echo esc_url($cta_primary_link); ?>">
             <?php echo esc_html($cta_primary_text); ?>
         </a>
-        <a id="brxe-ytbkgc" class="brxe-button bricks-button outline circle"
+        <a class="btn btn--cyan btn--pulse equipment-action"
             href="<?php echo esc_url($cta_secondary_link); ?>" target="_blank" rel="noopener">
             <?php echo esc_html($cta_secondary_text); ?>
             <i class="ti-download"></i>

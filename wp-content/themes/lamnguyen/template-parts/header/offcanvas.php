@@ -11,40 +11,40 @@ $logo_markup = '';
 if ($logo_svg !== '') {
     $logo_markup = lamnguyen_render_svg($logo_svg);
 } elseif ($logo_image) {
-    $logo_markup = lamnguyen_render_image($logo_image, 'full', array('class' => 'bricks-site-logo css-filter'));
+    $logo_markup = lamnguyen_render_image($logo_image, 'full', array('class' => 'site-logo'));
 } else {
     $logo_markup = sprintf(
-        '<img src="%s" class="bricks-site-logo css-filter" loading="eager" decoding="async" alt="%s" />',
+        '<img src="%s" class="site-logo" loading="eager" decoding="async" alt="%s" />',
         esc_url($logo_fallback_url),
         esc_attr(get_bloginfo('name'))
     );
 }
 ?>
-<div id="nav-mobile" class="brxe-offcanvas bricks-lazy-hidden" aria-label="Offcanvas" data-direction="right">
-    <div id="brxe-e3d1a3" class="brxe-block brx-offcanvas-inner bricks-lazy-hidden">
-        <a id="brxe-3fc54c" class="brxe-logo" href="<?php echo esc_url(home_url('/')); ?>">
+<div id="nav-mobile" class="offcanvas" aria-label="Offcanvas" data-direction="right">
+    <div class="offcanvas__inner">
+        <a class="offcanvas__logo" href="<?php echo esc_url(home_url('/')); ?>">
             <?php echo $logo_markup !== '' ? $logo_markup : esc_html(get_bloginfo('name')); ?>
         </a>
-        <div id="brxe-0fffcc" class="brxe-heading"><?php echo esc_html($offcanvas_title); ?></div>
-        <div id="brxe-81c951" class="brxe-nav-menu">
-            <nav class="bricks-nav-menu-wrapper never">
+        <div class="offcanvas__title"><?php echo esc_html($offcanvas_title); ?></div>
+        <div class="offcanvas__menu">
+            <nav class="offcanvas__nav">
                 <?php
                 wp_nav_menu(
                     array(
                         'theme_location' => 'primary',
                         'container'      => false,
-                        'menu_class'     => 'bricks-nav-menu',
+                        'menu_class'     => 'offcanvas__list',
                         'fallback_cb'    => false,
                     )
                 );
                 ?>
             </nav>
         </div>
-        <div id="brxe-6aae21" class="brxe-heading"><?php echo esc_html($offcanvas_subtitle); ?></div>
-        <button id="brxe-8fdc5d" class="brxe-toggle" aria-label="<?php esc_attr_e('Đóng', 'lamnguyen'); ?>"
+        <div class="offcanvas__subtitle"><?php echo esc_html($offcanvas_subtitle); ?></div>
+        <button class="offcanvas__close" aria-label="<?php esc_attr_e('Đóng', 'lamnguyen'); ?>"
             aria-expanded="false" data-offcanvas-close="#nav-mobile" type="button">
             <i class="ti-close"></i>
         </button>
     </div>
-    <div class="brxe-block brx-offcanvas-backdrop bricks-lazy-hidden"></div>
+    <div class="offcanvas-backdrop"></div>
 </div>

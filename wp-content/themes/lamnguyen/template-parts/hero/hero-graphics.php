@@ -1,4 +1,4 @@
-<svg class="brxe-svg" id="brxe-jzxuux" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+<svg class="hero-graphic hero-graphic--desktop" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
     data-name="Layer 2" viewBox="0 0 1485.47 640">
     <defs>
         <style>
@@ -321,7 +321,8 @@
             </g>
         </g>
     </g>
-</svg><svg class="brxe-svg" id="brxe-iyjiza" xmlns="http://www.w3.org/2000/svg"
+</svg>
+<svg class="hero-graphic hero-graphic--mobile" xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink" data-name="Layer 1" viewBox="0 0 488 420">
     <defs>
         <style>
