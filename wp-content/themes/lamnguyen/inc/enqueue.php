@@ -6,7 +6,7 @@ function lamnguyen_enqueue_assets(): void
 {
     $theme_version = wp_get_theme()->get('Version');
     $css_path = get_template_directory() . '/assets/css/theme.css';
-    $inline_css_path = get_template_directory() . '/assets/css/bricks-inline.css';
+    $home_css_path = get_template_directory() . '/assets/css/pages/home.css';
     $js_path = get_template_directory() . '/assets/js/theme.js';
     $splide_init_path = get_template_directory() . '/assets/js/splide-init.js';
 
@@ -47,21 +47,20 @@ function lamnguyen_enqueue_assets(): void
         'lamnguyen-bricks-frontend',
         'lamnguyen-bricks-splide',
     );
-    if (file_exists($inline_css_path)) {
-        wp_enqueue_style(
-            'lamnguyen-bricks-inline',
-            get_template_directory_uri() . '/assets/css/bricks-inline.css',
-            array('lamnguyen-bricks-frontend', 'lamnguyen-bricks-splide'),
-            (string) filemtime($inline_css_path)
-        );
-        $theme_deps[] = 'lamnguyen-bricks-inline';
-    }
     wp_enqueue_style(
         'lamnguyen-theme',
         get_template_directory_uri() . '/assets/css/theme.css',
         $theme_deps,
         file_exists($css_path) ? (string) filemtime($css_path) : $theme_version
     );
+    if (is_front_page() && file_exists($home_css_path)) {
+        wp_enqueue_style(
+            'lamnguyen-home',
+            get_template_directory_uri() . '/assets/css/pages/home.css',
+            array('lamnguyen-theme'),
+            (string) filemtime($home_css_path)
+        );
+    }
 
     wp_enqueue_script(
         'lamnguyen-splide',
