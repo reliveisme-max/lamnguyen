@@ -4,8 +4,21 @@ declare(strict_types=1);
 
 $offcanvas_title = lamnguyen_get_option('offcanvas_title', __('Công ty TNHH In Lâm Nguyễn', 'lamnguyen'));
 $offcanvas_subtitle = lamnguyen_get_option('offcanvas_subtitle', __('Liên hệ trực tiếp để được tư vấn và báo giá đầy đủ', 'lamnguyen'));
+$logo_svg = lamnguyen_get_option('logo_svg', '');
 $logo_image = lamnguyen_get_option('logo_image', null);
-$logo_markup = lamnguyen_render_image($logo_image, 'full', array('class' => 'bricks-site-logo css-filter'));
+$logo_fallback_url = 'https://inanlamnguyen.com/wp-content/uploads/2025/10/header-logo-1.svg';
+$logo_markup = '';
+if ($logo_svg !== '') {
+    $logo_markup = lamnguyen_render_svg($logo_svg);
+} elseif ($logo_image) {
+    $logo_markup = lamnguyen_render_image($logo_image, 'full', array('class' => 'bricks-site-logo css-filter'));
+} else {
+    $logo_markup = sprintf(
+        '<img src="%s" class="bricks-site-logo css-filter" loading="eager" decoding="async" alt="%s" />',
+        esc_url($logo_fallback_url),
+        esc_attr(get_bloginfo('name'))
+    );
+}
 ?>
 <div id="nav-mobile" class="brxe-offcanvas bricks-lazy-hidden" aria-label="Offcanvas" data-direction="right">
     <div id="brxe-e3d1a3" class="brxe-block brx-offcanvas-inner bricks-lazy-hidden">

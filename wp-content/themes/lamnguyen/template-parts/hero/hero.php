@@ -22,8 +22,11 @@ if (is_array($hero_digits)) {
         $hero_digit_values[] = $value;
     }
 }
-if (count($hero_digit_values) === 1 && strlen($hero_digit_values[0]) > 1) {
-    $hero_digit_values = str_split($hero_digit_values[0]);
+if ($hero_digit_values) {
+    $first_value = $hero_digit_values[0];
+    if (strlen($first_value) > 1) {
+        $hero_digit_values = str_split($first_value);
+    }
 }
 if (!$hero_digit_values) {
     $hero_digit_values = array('1', '5');
@@ -43,7 +46,7 @@ if (count($hero_suffix_parts) > 1) {
 ?>
 <section id="brxe-fmrgte" class="brxe-section bricks-lazy-hidden">
     <?php get_template_part('template-parts/hero/hero-graphics'); ?>
-    <div id="brxe-qeagss" class="brxe-block bricks-lazy-hidden"></div>
+    <div id="brxe-qeagss" class="brxe-block"></div>
     <div id="brxe-xxasvs" class="brxe-block bricks-lazy-hidden">
         <span id="brxe-itkgie" class="brxe-heading"><?php echo esc_html($hero_top); ?></span>
         <div id="brxe-gwiose" class="brxe-block bricks-lazy-hidden">

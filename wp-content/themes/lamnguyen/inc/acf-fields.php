@@ -323,10 +323,19 @@ function lamnguyen_register_acf_field_groups(): void
             'title' => 'Nội dung trang chủ',
             'fields' => array(
                 array(
+                    'key' => 'field_lamnguyen_home_tab_hero',
+                    'label' => 'Hero',
+                    'type' => 'tab',
+                ),
+                array(
                     'key' => 'field_lamnguyen_home_hero_top',
                     'label' => 'Hero - chữ trên',
                     'name' => 'hero_top_text',
                     'type' => 'text',
+                    'placeholder' => 'Trên',
+                    'wrapper' => array(
+                        'width' => '25',
+                    ),
                 ),
                 array(
                     'key' => 'field_lamnguyen_home_hero_year_digits',
@@ -334,12 +343,18 @@ function lamnguyen_register_acf_field_groups(): void
                     'name' => 'hero_year_digits',
                     'type' => 'repeater',
                     'button_label' => 'Thêm số',
+                    'layout' => 'table',
+                    'collapsed' => 'field_lamnguyen_home_hero_year_digit',
+                    'wrapper' => array(
+                        'width' => '25',
+                    ),
                     'sub_fields' => array(
                         array(
                             'key' => 'field_lamnguyen_home_hero_year_digit',
                             'label' => 'Số',
                             'name' => 'digit',
                             'type' => 'text',
+                            'placeholder' => '1',
                         ),
                     ),
                 ),
@@ -348,18 +363,35 @@ function lamnguyen_register_acf_field_groups(): void
                     'label' => 'Hero - hậu tố',
                     'name' => 'hero_suffix_text',
                     'type' => 'text',
+                    'placeholder' => 'năm phát triển',
+                    'wrapper' => array(
+                        'width' => '25',
+                    ),
                 ),
                 array(
                     'key' => 'field_lamnguyen_home_hero_brand',
                     'label' => 'Hero - tên thương hiệu',
                     'name' => 'hero_brand_text',
                     'type' => 'text',
+                    'placeholder' => 'IN LÂM NGUYỄN',
+                    'wrapper' => array(
+                        'width' => '25',
+                    ),
                 ),
                 array(
                     'key' => 'field_lamnguyen_home_hero_subtext',
                     'label' => 'Hero - mô tả',
                     'name' => 'hero_subtext',
                     'type' => 'text',
+                    'placeholder' => 'Tự tin đã mang lại hàng triệu ấn phẩm làm hài lòng các đối tác lớn.',
+                    'wrapper' => array(
+                        'width' => '100',
+                    ),
+                ),
+                array(
+                    'key' => 'field_lamnguyen_home_tab_partners',
+                    'label' => 'Đối tác',
+                    'type' => 'tab',
                 ),
                 array(
                     'key' => 'field_lamnguyen_home_partners',
@@ -369,6 +401,9 @@ function lamnguyen_register_acf_field_groups(): void
                     'button_label' => 'Thêm logo',
                     'layout' => 'table',
                     'collapsed' => 'field_lamnguyen_home_partner_logo',
+                    'wrapper' => array(
+                        'width' => '100',
+                    ),
                     'sub_fields' => array(
                         array(
                             'key' => 'field_lamnguyen_home_partner_logo',
@@ -386,6 +421,7 @@ function lamnguyen_register_acf_field_groups(): void
                             'label' => 'Liên kết',
                             'name' => 'link',
                             'type' => 'url',
+                            'placeholder' => 'https://',
                             'wrapper' => array(
                                 'width' => '70',
                             ),
@@ -393,10 +429,19 @@ function lamnguyen_register_acf_field_groups(): void
                     ),
                 ),
                 array(
+                    'key' => 'field_lamnguyen_home_tab_banner',
+                    'label' => 'Banner',
+                    'type' => 'tab',
+                ),
+                array(
                     'key' => 'field_lamnguyen_home_banner_title',
                     'label' => 'Tiêu đề banner',
                     'name' => 'banner_title',
                     'type' => 'text',
+                    'placeholder' => 'Thách thức mọi dự án',
+                    'wrapper' => array(
+                        'width' => '50',
+                    ),
                 ),
                 array(
                     'key' => 'field_lamnguyen_home_banner_bg_desktop',
@@ -404,6 +449,9 @@ function lamnguyen_register_acf_field_groups(): void
                     'name' => 'banner_bg_desktop',
                     'type' => 'image',
                     'return_format' => 'array',
+                    'wrapper' => array(
+                        'width' => '50',
+                    ),
                 ),
                 array(
                     'key' => 'field_lamnguyen_home_banner_bg_mobile',
@@ -411,18 +459,79 @@ function lamnguyen_register_acf_field_groups(): void
                     'name' => 'banner_bg_mobile',
                     'type' => 'image',
                     'return_format' => 'array',
+                    'wrapper' => array(
+                        'width' => '50',
+                    ),
+                ),
+                array(
+                    'key' => 'field_lamnguyen_home_tab_tech',
+                    'label' => 'Công nghệ',
+                    'type' => 'tab',
                 ),
                 array(
                     'key' => 'field_lamnguyen_home_tech_title',
-                    'label' => 'Tiêu đề khối công nghệ',
+                    'label' => 'Công nghệ',
                     'name' => 'tech_title',
                     'type' => 'text',
+                    'placeholder' => 'Công nghệ',
+                    'wrapper' => array(
+                        'width' => '20',
+                    ),
+                ),
+                array(
+                    'key' => 'field_lamnguyen_home_tech_title_highlight',
+                    'label' => 'IN (chữ lớn)',
+                    'name' => 'tech_title_highlight',
+                    'type' => 'text',
+                    'placeholder' => 'IN',
+                    'wrapper' => array(
+                        'width' => '20',
+                    ),
+                ),
+                array(
+                    'key' => 'field_lamnguyen_home_tech_title_suffix',
+                    'label' => 'Hiện đại',
+                    'name' => 'tech_title_suffix',
+                    'type' => 'text',
+                    'placeholder' => 'hiện đại',
+                    'wrapper' => array(
+                        'width' => '20',
+                    ),
+                ),
+                array(
+                    'key' => 'field_lamnguyen_home_tech_quality_label',
+                    'label' => 'Chất lượng',
+                    'name' => 'tech_quality_label',
+                    'type' => 'text',
+                    'placeholder' => 'chất lượng',
+                    'wrapper' => array(
+                        'width' => '20',
+                    ),
+                ),
+                array(
+                    'key' => 'field_lamnguyen_home_tech_quality_highlight',
+                    'label' => 'Vượt trội',
+                    'name' => 'tech_quality_highlight',
+                    'type' => 'text',
+                    'placeholder' => 'vượt trội',
+                    'wrapper' => array(
+                        'width' => '20',
+                    ),
                 ),
                 array(
                     'key' => 'field_lamnguyen_home_tech_subtitle',
-                    'label' => 'Phụ đề khối công nghệ',
+                    'label' => 'Câu bên phải',
                     'name' => 'tech_subtitle',
                     'type' => 'text',
+                    'placeholder' => 'Thách thức mọi Dự án',
+                    'wrapper' => array(
+                        'width' => '100',
+                    ),
+                ),
+                array(
+                    'key' => 'field_lamnguyen_home_tab_products',
+                    'label' => 'Sản phẩm',
+                    'type' => 'tab',
                 ),
                 array(
                     'key' => 'field_lamnguyen_home_products',
@@ -430,12 +539,21 @@ function lamnguyen_register_acf_field_groups(): void
                     'name' => 'product_cards',
                     'type' => 'repeater',
                     'button_label' => 'Thêm card',
+                    'layout' => 'table',
+                    'collapsed' => 'field_lamnguyen_home_product_title',
+                    'wrapper' => array(
+                        'width' => '100',
+                    ),
                     'sub_fields' => array(
                         array(
                             'key' => 'field_lamnguyen_home_product_title',
                             'label' => 'Tiêu đề',
                             'name' => 'title',
                             'type' => 'text',
+                            'placeholder' => 'Tên sản phẩm',
+                            'wrapper' => array(
+                                'width' => '40',
+                            ),
                         ),
                         array(
                             'key' => 'field_lamnguyen_home_product_image',
@@ -443,12 +561,20 @@ function lamnguyen_register_acf_field_groups(): void
                             'name' => 'image',
                             'type' => 'image',
                             'return_format' => 'array',
+                            'preview_size' => 'thumbnail',
+                            'wrapper' => array(
+                                'width' => '30',
+                            ),
                         ),
                         array(
                             'key' => 'field_lamnguyen_home_product_link',
                             'label' => 'Liên kết',
                             'name' => 'link',
                             'type' => 'url',
+                            'placeholder' => 'https://',
+                            'wrapper' => array(
+                                'width' => '30',
+                            ),
                         ),
                     ),
                 ),
@@ -457,18 +583,45 @@ function lamnguyen_register_acf_field_groups(): void
                     'label' => 'Text nút sản phẩm',
                     'name' => 'products_cta_text',
                     'type' => 'text',
+                    'placeholder' => 'Xem tất cả sản phẩm',
+                    'wrapper' => array(
+                        'width' => '50',
+                    ),
                 ),
                 array(
                     'key' => 'field_lamnguyen_home_products_cta_link',
                     'label' => 'Link nút sản phẩm',
                     'name' => 'products_cta_link',
                     'type' => 'url',
+                    'placeholder' => 'https://',
+                    'wrapper' => array(
+                        'width' => '50',
+                    ),
+                ),
+                array(
+                    'key' => 'field_lamnguyen_home_tab_priority',
+                    'label' => 'Ưu tiên',
+                    'type' => 'tab',
                 ),
                 array(
                     'key' => 'field_lamnguyen_home_priority_title',
                     'label' => 'Tiêu đề ưu tiên',
                     'name' => 'priority_title',
                     'type' => 'text',
+                    'placeholder' => 'Bao bì tạo nên sự hoàn hảo cho sản phẩm',
+                    'wrapper' => array(
+                        'width' => '40',
+                    ),
+                ),
+                array(
+                    'key' => 'field_lamnguyen_home_priority_title_highlight',
+                    'label' => 'Chữ nhấn tiêu đề',
+                    'name' => 'priority_title_highlight',
+                    'type' => 'text',
+                    'placeholder' => 'đầu tư công nghệ',
+                    'wrapper' => array(
+                        'width' => '60',
+                    ),
                 ),
                 array(
                     'key' => 'field_lamnguyen_home_priority_body',
@@ -476,6 +629,32 @@ function lamnguyen_register_acf_field_groups(): void
                     'name' => 'priority_body',
                     'type' => 'textarea',
                     'rows' => 4,
+                    'placeholder' => 'Mô tả ngắn về ưu tiên, điểm khác biệt hoặc giá trị.',
+                    'wrapper' => array(
+                        'width' => '60',
+                    ),
+                ),
+                array(
+                    'key' => 'field_lamnguyen_home_feature_decor_top',
+                    'label' => 'Ảnh trang trí phía trên',
+                    'name' => 'feature_decor_top',
+                    'type' => 'image',
+                    'return_format' => 'array',
+                    'preview_size' => 'medium',
+                    'wrapper' => array(
+                        'width' => '50',
+                    ),
+                ),
+                array(
+                    'key' => 'field_lamnguyen_home_feature_decor_bottom',
+                    'label' => 'Ảnh trang trí phía dưới',
+                    'name' => 'feature_decor_bottom',
+                    'type' => 'image',
+                    'return_format' => 'array',
+                    'preview_size' => 'medium',
+                    'wrapper' => array(
+                        'width' => '50',
+                    ),
                 ),
                 array(
                     'key' => 'field_lamnguyen_home_features',
@@ -483,24 +662,41 @@ function lamnguyen_register_acf_field_groups(): void
                     'name' => 'feature_items',
                     'type' => 'repeater',
                     'button_label' => 'Thêm nổi bật',
+                    'layout' => 'table',
+                    'collapsed' => 'field_lamnguyen_home_feature_title',
+                    'wrapper' => array(
+                        'width' => '100',
+                    ),
                     'sub_fields' => array(
                         array(
                             'key' => 'field_lamnguyen_home_feature_title',
                             'label' => 'Tiêu đề',
                             'name' => 'title',
                             'type' => 'text',
+                            'placeholder' => 'Chất lượng',
+                            'wrapper' => array(
+                                'width' => '40',
+                            ),
                         ),
                         array(
                             'key' => 'field_lamnguyen_home_feature_highlight',
                             'label' => 'Chữ nhấn',
                             'name' => 'highlight',
                             'type' => 'text',
+                            'placeholder' => 'vượt trội',
+                            'wrapper' => array(
+                                'width' => '30',
+                            ),
                         ),
                         array(
                             'key' => 'field_lamnguyen_home_feature_icon',
                             'label' => 'Class icon',
                             'name' => 'icon_class',
                             'type' => 'text',
+                            'placeholder' => 'fa-solid fa-star',
+                            'wrapper' => array(
+                                'width' => '30',
+                            ),
                         ),
                     ),
                 ),
@@ -510,6 +706,15 @@ function lamnguyen_register_acf_field_groups(): void
                     'name' => 'feature_center_image',
                     'type' => 'image',
                     'return_format' => 'array',
+                    'preview_size' => 'medium',
+                    'wrapper' => array(
+                        'width' => '100',
+                    ),
+                ),
+                array(
+                    'key' => 'field_lamnguyen_home_tab_equipment',
+                    'label' => 'Thiết bị',
+                    'type' => 'tab',
                 ),
                 array(
                     'key' => 'field_lamnguyen_home_equipment',
@@ -517,6 +722,11 @@ function lamnguyen_register_acf_field_groups(): void
                     'name' => 'equipment_items',
                     'type' => 'repeater',
                     'button_label' => 'Thêm thiết bị',
+                    'layout' => 'table',
+                    'collapsed' => 'field_lamnguyen_home_equipment_title',
+                    'wrapper' => array(
+                        'width' => '100',
+                    ),
                     'sub_fields' => array(
                         array(
                             'key' => 'field_lamnguyen_home_equipment_image',
@@ -524,18 +734,30 @@ function lamnguyen_register_acf_field_groups(): void
                             'name' => 'image',
                             'type' => 'image',
                             'return_format' => 'array',
+                            'preview_size' => 'thumbnail',
+                            'wrapper' => array(
+                                'width' => '30',
+                            ),
                         ),
                         array(
                             'key' => 'field_lamnguyen_home_equipment_title',
                             'label' => 'Tiêu đề',
                             'name' => 'title',
                             'type' => 'text',
+                            'placeholder' => 'Máy in',
+                            'wrapper' => array(
+                                'width' => '35',
+                            ),
                         ),
                         array(
                             'key' => 'field_lamnguyen_home_equipment_subtitle',
                             'label' => 'Phụ đề',
                             'name' => 'subtitle',
                             'type' => 'text',
+                            'placeholder' => 'Công suất cao',
+                            'wrapper' => array(
+                                'width' => '35',
+                            ),
                         ),
                     ),
                 ),
@@ -544,30 +766,55 @@ function lamnguyen_register_acf_field_groups(): void
                     'label' => 'Text nút chính',
                     'name' => 'equipment_cta_primary_text',
                     'type' => 'text',
+                    'placeholder' => 'Xem thiết bị',
+                    'wrapper' => array(
+                        'width' => '25',
+                    ),
                 ),
                 array(
                     'key' => 'field_lamnguyen_home_equipment_cta_primary_link',
                     'label' => 'Link nút chính',
                     'name' => 'equipment_cta_primary_link',
                     'type' => 'url',
+                    'placeholder' => 'https://',
+                    'wrapper' => array(
+                        'width' => '25',
+                    ),
                 ),
                 array(
                     'key' => 'field_lamnguyen_home_equipment_cta_secondary_text',
                     'label' => 'Text nút phụ',
                     'name' => 'equipment_cta_secondary_text',
                     'type' => 'text',
+                    'placeholder' => 'Liên hệ báo giá',
+                    'wrapper' => array(
+                        'width' => '25',
+                    ),
                 ),
                 array(
                     'key' => 'field_lamnguyen_home_equipment_cta_secondary_link',
                     'label' => 'Link nút phụ',
                     'name' => 'equipment_cta_secondary_link',
                     'type' => 'url',
+                    'placeholder' => 'https://',
+                    'wrapper' => array(
+                        'width' => '25',
+                    ),
+                ),
+                array(
+                    'key' => 'field_lamnguyen_home_tab_process',
+                    'label' => 'Quy trình',
+                    'type' => 'tab',
                 ),
                 array(
                     'key' => 'field_lamnguyen_home_process_title',
                     'label' => 'Tiêu đề quy trình',
                     'name' => 'process_title',
                     'type' => 'text',
+                    'placeholder' => 'Quy trình làm việc',
+                    'wrapper' => array(
+                        'width' => '40',
+                    ),
                 ),
                 array(
                     'key' => 'field_lamnguyen_home_process_body',
@@ -575,6 +822,10 @@ function lamnguyen_register_acf_field_groups(): void
                     'name' => 'process_body',
                     'type' => 'textarea',
                     'rows' => 4,
+                    'placeholder' => 'Mô tả ngắn về quy trình làm việc.',
+                    'wrapper' => array(
+                        'width' => '60',
+                    ),
                 ),
                 array(
                     'key' => 'field_lamnguyen_home_process_image',
@@ -582,42 +833,74 @@ function lamnguyen_register_acf_field_groups(): void
                     'name' => 'process_image',
                     'type' => 'image',
                     'return_format' => 'array',
+                    'wrapper' => array(
+                        'width' => '40',
+                    ),
                 ),
                 array(
                     'key' => 'field_lamnguyen_home_process_cta_primary_text',
                     'label' => 'Text nút chính',
                     'name' => 'process_cta_primary_text',
                     'type' => 'text',
+                    'placeholder' => 'Xem quy trình',
+                    'wrapper' => array(
+                        'width' => '25',
+                    ),
                 ),
                 array(
                     'key' => 'field_lamnguyen_home_process_cta_primary_link',
                     'label' => 'Link nút chính',
                     'name' => 'process_cta_primary_link',
                     'type' => 'url',
+                    'placeholder' => 'https://',
+                    'wrapper' => array(
+                        'width' => '25',
+                    ),
                 ),
                 array(
                     'key' => 'field_lamnguyen_home_process_cta_secondary_text',
                     'label' => 'Text nút phụ',
                     'name' => 'process_cta_secondary_text',
                     'type' => 'text',
+                    'placeholder' => 'Liên hệ tư vấn',
+                    'wrapper' => array(
+                        'width' => '25',
+                    ),
                 ),
                 array(
                     'key' => 'field_lamnguyen_home_process_cta_secondary_link',
                     'label' => 'Link nút phụ',
                     'name' => 'process_cta_secondary_link',
                     'type' => 'url',
+                    'placeholder' => 'https://',
+                    'wrapper' => array(
+                        'width' => '25',
+                    ),
+                ),
+                array(
+                    'key' => 'field_lamnguyen_home_tab_trust',
+                    'label' => 'Chữ tín',
+                    'type' => 'tab',
                 ),
                 array(
                     'key' => 'field_lamnguyen_home_trust_title',
                     'label' => 'Tiêu đề chữ tín',
                     'name' => 'trust_title',
                     'type' => 'text',
+                    'placeholder' => 'Chữ tín tạo nên thương hiệu',
+                    'wrapper' => array(
+                        'width' => '40',
+                    ),
                 ),
                 array(
                     'key' => 'field_lamnguyen_home_trust_subtitle',
                     'label' => 'Phụ đề chữ tín',
                     'name' => 'trust_subtitle',
                     'type' => 'text',
+                    'placeholder' => 'Cam kết cùng đồng hành',
+                    'wrapper' => array(
+                        'width' => '60',
+                    ),
                 ),
                 array(
                     'key' => 'field_lamnguyen_home_trust_body',
@@ -625,6 +908,10 @@ function lamnguyen_register_acf_field_groups(): void
                     'name' => 'trust_body',
                     'type' => 'textarea',
                     'rows' => 4,
+                    'placeholder' => 'Mô tả ngắn về giá trị chữ tín.',
+                    'wrapper' => array(
+                        'width' => '100',
+                    ),
                 ),
                 array(
                     'key' => 'field_lamnguyen_home_trust_bg',
@@ -632,6 +919,9 @@ function lamnguyen_register_acf_field_groups(): void
                     'name' => 'trust_bg',
                     'type' => 'image',
                     'return_format' => 'array',
+                    'wrapper' => array(
+                        'width' => '50',
+                    ),
                 ),
             ),
             'location' => array(

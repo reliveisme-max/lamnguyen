@@ -4,7 +4,19 @@ declare(strict_types=1);
 
 $logo_svg = lamnguyen_get_option('logo_svg', '');
 $logo_image = lamnguyen_get_option('logo_image', null);
-$logo_markup = $logo_svg !== '' ? lamnguyen_render_svg($logo_svg) : lamnguyen_render_image($logo_image, 'full', array('class' => 'bricks-site-logo css-filter', 'loading' => 'eager'));
+$logo_fallback_url = 'https://inanlamnguyen.com/wp-content/uploads/2025/10/header-logo-1.svg';
+$logo_markup = '';
+if ($logo_svg !== '') {
+    $logo_markup = lamnguyen_render_svg($logo_svg);
+} elseif ($logo_image) {
+    $logo_markup = lamnguyen_render_image($logo_image, 'full', array('class' => 'bricks-site-logo css-filter', 'loading' => 'eager'));
+} else {
+    $logo_markup = sprintf(
+        '<img src="%s" class="bricks-site-logo css-filter" loading="eager" decoding="async" alt="%s" />',
+        esc_url($logo_fallback_url),
+        esc_attr(get_bloginfo('name'))
+    );
+}
 ?>
 <section id="brxe-cd4d2d" class="brxe-section bricks-lazy-hidden">
     <div id="brxe-ffec5d" class="brxe-block bricks-lazy-hidden">
