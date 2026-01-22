@@ -30,12 +30,7 @@ if (is_array($decor_bottom) && isset($decor_bottom['url'])) {
 
 $feature_style = '';
 if ($decor_bottom_url !== '') {
-    $feature_style = implode(' ', array(
-        'background-image: url(' . esc_url($decor_bottom_url) . ');',
-        'background-repeat: no-repeat;',
-        'background-position: bottom left;',
-        'background-size: 30%;',
-    ));
+    $feature_style = '--feature-decor-bottom: url(' . esc_url($decor_bottom_url) . ');';
 }
 $feature_style_attr = $feature_style !== '' ? ' style="' . esc_attr($feature_style) . '"' : '';
 ?>

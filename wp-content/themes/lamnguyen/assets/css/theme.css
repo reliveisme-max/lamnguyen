@@ -76,6 +76,20 @@ body.no-scroll {
     overflow: hidden;
     z-index: 0;
 }
+
+#brxe-xhnsod {
+    background-image: var(--priority-decor-top, none), var(--priority-decor-bottom, none) !important;
+    background-repeat: no-repeat, no-repeat !important;
+    background-position: top right, bottom left !important;
+    background-size: contain, 30% !important;
+}
+
+#brxe-ipcyou {
+    background-image: var(--feature-decor-bottom, none) !important;
+    background-repeat: no-repeat !important;
+    background-position: bottom left !important;
+    background-size: 30% !important;
+}
  
 #brxe-xhnsod > .brxe-container,
 #brxe-ipcyou > .brxe-container {
