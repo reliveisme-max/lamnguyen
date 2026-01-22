@@ -5,7 +5,9 @@ $priority_title = lamnguyen_get_field('priority_title', 'Ưu tiên hàng đầu 
 $priority_highlight = lamnguyen_get_field('priority_title_highlight', '');
 $priority_body = lamnguyen_get_field('priority_body', 'Chúng tôi luôn coi trọng đầu tư thiết bị công nghệ và ứng dụng khoa học vào sản xuất...');
 $priority_decor_top = lamnguyen_get_field('feature_decor_top', null);
+$priority_decor_bottom = lamnguyen_get_field('feature_decor_bottom', null);
 $priority_decor_top_url = '';
+$priority_decor_bottom_url = '';
 $priority_allowed = array(
     'span' => array('class' => true),
     'br' => array(),
@@ -40,25 +42,38 @@ if ($priority_highlight !== '') {
     }
 }
 
-if (is_array($priority_decor_top) && isset($priority_decor_top['url'])) {
-    $priority_decor_top_url = (string) $priority_decor_top['url'];
-} elseif (is_numeric($priority_decor_top)) {
-    $priority_decor_top_url = (string) wp_get_attachment_image_url((int) $priority_decor_top, 'full');
-} elseif (is_string($priority_decor_top)) {
-    $priority_decor_top_url = $priority_decor_top;
-}
+$resolve_decor_url = static function ($decor): string {
+    if (is_array($decor) && isset($decor['url'])) {
+        return (string) $decor['url'];
+    }
 
-$priority_style = '';
+    if (is_numeric($decor)) {
+        return (string) wp_get_attachment_image_url((int) $decor, 'full');
+    }
+
+    if (is_string($decor)) {
+        return $decor;
+    }
+
+    return '';
+};
+
+$priority_decor_top_url = $resolve_decor_url($priority_decor_top);
+$priority_decor_bottom_url = $resolve_decor_url($priority_decor_bottom);
+
+$priority_style_parts = array();
 if ($priority_decor_top_url !== '') {
-    $priority_style = '--priority-decor-top: url(' . esc_url($priority_decor_top_url) . ');';
+    $priority_style_parts[] = '--priority-decor-top: url(' . esc_url($priority_decor_top_url) . ');';
 }
+if ($priority_decor_bottom_url !== '') {
+    $priority_style_parts[] = '--priority-decor-bottom: url(' . esc_url($priority_decor_bottom_url) . ');';
+}
+$priority_style = implode(' ', $priority_style_parts);
 $priority_style_attr = $priority_style !== '' ? ' style="' . esc_attr($priority_style) . '"' : '';
 ?>
-<section id="brxe-xhnsod" class="brxe-section bricks-lazy-hidden">
-    <section id="brxe-xhnsod" class="brxe-section bricks-lazy-hidden" <?php echo $priority_style_attr; ?>>
-        <div id="brxe-extuzh" class="brxe-container bricks-lazy-hidden">
-            <h2 id="brxe-ugrqzv" class="brxe-heading"><?php echo esc_html($priority_title); ?></h2>
-            <h2 id="brxe-ugrqzv" class="brxe-heading"><?php echo $priority_title; ?></h2>
-            <div id="brxe-ffwluc" class="brxe-text-basic"><?php echo esc_html($priority_body); ?></div>
-        </div>
-    </section>
+<section id="brxe-xhnsod" class="brxe-section bricks-lazy-hidden" <?php echo $priority_style_attr; ?>>
+    <div id="brxe-extuzh" class="brxe-container bricks-lazy-hidden">
+        <h2 id="brxe-ugrqzv" class="brxe-heading"><?php echo wp_kses($priority_title, $priority_allowed); ?></h2>
+        <div id="brxe-ffwluc" class="brxe-text-basic"><?php echo esc_html($priority_body); ?></div>
+    </div>
+</section>
