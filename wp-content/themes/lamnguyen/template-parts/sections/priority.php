@@ -5,7 +5,7 @@ $priority_title = lamnguyen_get_field('priority_title', 'Ưu tiên hàng đầu 
 $priority_highlight = lamnguyen_get_field('priority_title_highlight', '');
 $priority_body = lamnguyen_get_field('priority_body', 'Chúng tôi luôn coi trọng đầu tư thiết bị công nghệ và ứng dụng khoa học vào sản xuất...');
 $priority_decor_top = lamnguyen_get_field('feature_decor_top', null);
-$priority_decor_top_url = '';
+$priority_decor_top_markup = '';
 $priority_allowed = array(
     'span' => array('class' => true),
     'br' => array(),
@@ -40,31 +40,23 @@ if ($priority_highlight !== '') {
     }
 }
 
-$resolve_decor_url = static function ($decor): string {
-    if (is_array($decor) && isset($decor['url'])) {
-        return (string) $decor['url'];
+if ($priority_decor_top) {
+    if (is_string($priority_decor_top)) {
+        $priority_decor_top_markup = sprintf(
+            '<img src="%s" alt="" class="priority-decor--top" loading="lazy" decoding="async" />',
+            esc_url($priority_decor_top)
+        );
+    } else {
+        $priority_decor_top_markup = lamnguyen_render_image(
+            $priority_decor_top,
+            'full',
+            array('class' => 'priority-decor--top')
+        );
     }
-
-    if (is_numeric($decor)) {
-        return (string) wp_get_attachment_image_url((int) $decor, 'full');
-    }
-
-    if (is_string($decor)) {
-        return $decor;
-    }
-
-    return '';
-};
-
-$priority_decor_top_url = $resolve_decor_url($priority_decor_top);
-
-$priority_style = '';
-if ($priority_decor_top_url !== '') {
-    $priority_style = '--priority-decor-top: url(' . esc_url($priority_decor_top_url) . ');';
 }
-$priority_style_attr = $priority_style !== '' ? ' style="' . esc_attr($priority_style) . '"' : '';
 ?>
-<section id="brxe-xhnsod" class="brxe-section bricks-lazy-hidden" <?php echo $priority_style_attr; ?>>
+<section id="brxe-xhnsod" class="brxe-section bricks-lazy-hidden">
+    <?php echo $priority_decor_top_markup; ?>
     <div id="brxe-extuzh" class="brxe-container bricks-lazy-hidden">
         <h2 id="brxe-ugrqzv" class="brxe-heading"><?php echo wp_kses($priority_title, $priority_allowed); ?></h2>
         <div id="brxe-ffwluc" class="brxe-text-basic"><?php echo esc_html($priority_body); ?></div>
