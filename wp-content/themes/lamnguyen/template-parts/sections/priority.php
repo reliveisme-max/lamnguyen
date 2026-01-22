@@ -5,9 +5,7 @@ $priority_title = lamnguyen_get_field('priority_title', 'Ưu tiên hàng đầu 
 $priority_highlight = lamnguyen_get_field('priority_title_highlight', '');
 $priority_body = lamnguyen_get_field('priority_body', 'Chúng tôi luôn coi trọng đầu tư thiết bị công nghệ và ứng dụng khoa học vào sản xuất...');
 $priority_decor_top = lamnguyen_get_field('feature_decor_top', null);
-$priority_decor_bottom = lamnguyen_get_field('feature_decor_bottom', null);
 $priority_decor_top_url = '';
-$priority_decor_bottom_url = '';
 $priority_allowed = array(
     'span' => array('class' => true),
     'br' => array(),
@@ -59,16 +57,11 @@ $resolve_decor_url = static function ($decor): string {
 };
 
 $priority_decor_top_url = $resolve_decor_url($priority_decor_top);
-$priority_decor_bottom_url = $resolve_decor_url($priority_decor_bottom);
 
-$priority_style_parts = array();
+$priority_style = '';
 if ($priority_decor_top_url !== '') {
-    $priority_style_parts[] = '--priority-decor-top: url(' . esc_url($priority_decor_top_url) . ');';
+    $priority_style = '--priority-decor-top: url(' . esc_url($priority_decor_top_url) . ');';
 }
-if ($priority_decor_bottom_url !== '') {
-    $priority_style_parts[] = '--priority-decor-bottom: url(' . esc_url($priority_decor_bottom_url) . ');';
-}
-$priority_style = implode(' ', $priority_style_parts);
 $priority_style_attr = $priority_style !== '' ? ' style="' . esc_attr($priority_style) . '"' : '';
 ?>
 <section id="brxe-xhnsod" class="brxe-section bricks-lazy-hidden" <?php echo $priority_style_attr; ?>>

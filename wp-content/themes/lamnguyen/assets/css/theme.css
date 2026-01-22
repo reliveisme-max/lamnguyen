@@ -70,20 +70,6 @@ body.no-scroll {
     background-position: center;
 }
  
-#brxe-xhnsod {
-    background-image: var(--priority-decor-top, none), var(--priority-decor-bottom, none);
-    background-repeat: no-repeat, no-repeat;
-    background-position: top right, bottom left;
-    background-size: contain, 30%;
-}
- 
-#brxe-ipcyou {
-    background-image: var(--feature-decor-bottom, none);
-    background-repeat: no-repeat;
-    background-position: bottom left;
-    background-size: 30%;
-}
- 
 #brxe-xhnsod,
 #brxe-ipcyou {
     position: relative;
@@ -92,8 +78,33 @@ body.no-scroll {
 }
  
 #brxe-xhnsod::before,
-#brxe-xhnsod::after {
-    z-index: 2;
+#brxe-ipcyou::before {
+    content: "";
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    pointer-events: none;
+    z-index: 1;
+}
+
+#brxe-xhnsod::before {
+    top: 0;
+    right: 0;
+    width: 45%;
+    max-width: 52rem;
+    height: 45%;
+    background-image: var(--priority-decor-top, none);
+    background-position: top right;
+}
+
+#brxe-ipcyou::before {
+    bottom: 0;
+    left: 0;
+    width: 45%;
+    max-width: 52rem;
+    height: 45%;
+    background-image: var(--feature-decor-bottom, none);
+    background-position: bottom left;
 }
  
 #brxe-xhnsod .priority-decor--top {
