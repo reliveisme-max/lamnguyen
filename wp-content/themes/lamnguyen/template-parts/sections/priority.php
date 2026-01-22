@@ -62,11 +62,21 @@ $priority_decor_top_url = $resolve_decor_url($priority_decor_top);
 $priority_decor_bottom_url = $resolve_decor_url($priority_decor_bottom);
 
 $priority_style_parts = array();
-if ($priority_decor_top_url !== '') {
-    $priority_style_parts[] = '--priority-decor-top: url(' . esc_url($priority_decor_top_url) . ');';
-}
-if ($priority_decor_bottom_url !== '') {
-    $priority_style_parts[] = '--priority-decor-bottom: url(' . esc_url($priority_decor_bottom_url) . ');';
+if ($priority_decor_top_url !== '' && $priority_decor_bottom_url !== '') {
+    $priority_style_parts[] = 'background-image: url(' . esc_url($priority_decor_top_url) . '), url(' . esc_url($priority_decor_bottom_url) . ');';
+    $priority_style_parts[] = 'background-repeat: no-repeat, no-repeat;';
+    $priority_style_parts[] = 'background-position: top right, bottom left;';
+    $priority_style_parts[] = 'background-size: contain, 30%;';
+} elseif ($priority_decor_top_url !== '') {
+    $priority_style_parts[] = 'background-image: url(' . esc_url($priority_decor_top_url) . ');';
+    $priority_style_parts[] = 'background-repeat: no-repeat;';
+    $priority_style_parts[] = 'background-position: top right;';
+    $priority_style_parts[] = 'background-size: contain;';
+} elseif ($priority_decor_bottom_url !== '') {
+    $priority_style_parts[] = 'background-image: url(' . esc_url($priority_decor_bottom_url) . ');';
+    $priority_style_parts[] = 'background-repeat: no-repeat;';
+    $priority_style_parts[] = 'background-position: bottom left;';
+    $priority_style_parts[] = 'background-size: 30%;';
 }
 $priority_style = implode(' ', $priority_style_parts);
 $priority_style_attr = $priority_style !== '' ? ' style="' . esc_attr($priority_style) . '"' : '';

@@ -77,47 +77,6 @@ body.no-scroll {
     z-index: 0;
 }
  
-#brxe-xhnsod::before,
-#brxe-xhnsod::after,
-#brxe-ipcyou::before {
-    content: "";
-    position: absolute;
-    background-repeat: no-repeat;
-    background-size: contain;
-    pointer-events: none;
-    z-index: 1;
-}
-
-#brxe-xhnsod::before {
-    top: 0;
-    right: 0;
-    width: 45%;
-    max-width: 52rem;
-    height: 45%;
-    background-image: var(--priority-decor-top, none);
-    background-position: top right;
-}
-
-#brxe-xhnsod::after {
-    bottom: 0;
-    left: 0;
-    width: 45%;
-    max-width: 52rem;
-    height: 45%;
-    background-image: var(--priority-decor-bottom, none);
-    background-position: bottom left;
-}
-
-#brxe-ipcyou::before {
-    bottom: 0;
-    left: 0;
-    width: 45%;
-    max-width: 52rem;
-    height: 45%;
-    background-image: var(--feature-decor-bottom, none);
-    background-position: bottom left;
-}
- 
 #brxe-xhnsod > .brxe-container,
 #brxe-ipcyou > .brxe-container {
     position: relative;
